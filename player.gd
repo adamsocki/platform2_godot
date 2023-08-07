@@ -11,7 +11,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta):
-	
 	apply_gravity(delta)
 	handle_jump()
 
@@ -20,7 +19,6 @@ func _physics_process(delta):
 	apply_friction(input_axis, delta)
 
 	move_and_slide()
-
 
 
 func apply_gravity(delta):
@@ -32,7 +30,7 @@ func handle_jump():
 		if Input.is_action_just_pressed("ui_accept"):
 			velocity.y = JUMP_VELOCITY
 
-func handle_acceleration(input_axis, delta)
+func handle_acceleration(input_axis, delta):
 	if input_axis != 0:
 		velocity.x = move_toward(velocity.x, input_axis * SPEED, ACCELERATION * delta)
 
