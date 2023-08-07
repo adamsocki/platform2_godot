@@ -6,13 +6,13 @@
 [node name="World1" type="Node2D"]
 script = ExtResource("1_83q7e")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Ground_1" type="StaticBody2D" parent="."]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground_1"]
 position = Vector2(0, 256)
-polygon = PackedVector2Array(0, 0, 192, 0, 192, 16, 0, 16)
+polygon = PackedVector2Array(152, 0, 320, -64, 384, -64, 448, -64, 512, -64, 576, -64, 640, -64, 640, -112, 640, -128, 656, -128, 656, -48, 320, -48, 152, 16, 0, 16, 0, 0)
 
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D/CollisionPolygon2D"]
+[node name="Polygon2D" type="Polygon2D" parent="Ground_1/CollisionPolygon2D"]
 
 [node name="Player" parent="." instance=ExtResource("2_fl4ni")]
 position = Vector2(40, 208)
