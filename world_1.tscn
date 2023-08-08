@@ -1,25 +1,56 @@
-[gd_scene load_steps=3 format=3 uid="uid://b12uk144m2mnc"]
+[gd_scene load_steps=6 format=3 uid="uid://b12uk144m2mnc"]
 
 [ext_resource type="Script" path="res://world_1.gd" id="1_83q7e"]
 [ext_resource type="PackedScene" uid="uid://dyot45l685gqn" path="res://player.tscn" id="2_fl4ni"]
+[ext_resource type="Texture2D" uid="uid://dnmef7lpix802" path="res://floor1a.svg" id="3_lpwyg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_igtte"]
+texture = ExtResource("3_lpwyg")
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_4lsnh"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_igtte")
 
 [node name="World1" type="Node2D"]
 script = ExtResource("1_83q7e")
 
 [node name="Ground_1" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground_1"]
 position = Vector2(0, 256)
-polygon = PackedVector2Array(152, 0, 320, -64, 384, -64, 448, -64, 512, -64, 576, -64, 640, -64, 640, -112, 640, -128, 656, -128, 656, -48, 320, -48, 152, 16, 0, 16, 0, 0)
+polygon = PackedVector2Array(152, 0, 320, -64, 416, -64, 432, -56, 320, -56, 152, 8, 0, 8, 0, 0)
 
 [node name="Polygon2D" type="Polygon2D" parent="Ground_1/CollisionPolygon2D"]
 
 [node name="Ground_2" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground_2"]
-polygon = PackedVector2Array(416, 192, 576, 256, 568, 264, 408, 200)
+polygon = PackedVector2Array(416, 192, 576, 264, 568, 264, 408, 192)
 
 [node name="Polygon2D" type="Polygon2D" parent="Ground_2/CollisionPolygon2D"]
 
+[node name="Ground_3" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Ground_3"]
+position = Vector2(232, 0)
+polygon = PackedVector2Array(416, 192, 576, 264, 568, 264, 408, 192)
+
+[node name="Polygon2D" type="Polygon2D" parent="Ground_3/CollisionPolygon2D"]
+
 [node name="Player" parent="." instance=ExtResource("2_fl4ni")]
-position = Vector2(40, 208)
+position = Vector2(8, 576)
+scale = Vector2(4.33574, 4.33574)
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(-8, 440)
+tile_set = SubResource("TileSet_4lsnh")
+cell_quadrant_size = 5
+format = 2
+layer_0/tile_data = PackedInt32Array(786432, 1, 0, 786446, 1, 0, 786445, 1, 0, 786444, 1, 0, 786443, 1, 0, 786442, 1, 0, 786441, 1, 0, 786440, 1, 0, 786439, 1, 0, 786438, 1, 0, 786437, 1, 0, 786436, 1, 0, 786435, 1, 0, 786434, 1, 0, 786433, 1, 0, 786447, 1, 0, 786448, 1, 0, 786449, 1, 0, 786450, 1, 0, 786451, 1, 0, 786452, 1, 0, 786453, 1, 0, 786454, 1, 0, 786466, 1, 0, 786465, 1, 0, 786464, 1, 0, 786463, 1, 0, 786462, 1, 0, 786455, 1, 0, 786461, 1, 0, 786460, 1, 0, 786459, 1, 0, 786458, 1, 0, 786457, 1, 0, 786456, 1, 0, 786467, 1, 0, 786468, 1, 0, 786469, 1, 0, 786470, 1, 0, 786471, 1, 0, 786472, 1, 0, 786473, 1, 0, 786474, 1, 0, 786475, 1, 0, 786476, 1, 0, 786477, 1, 0, 786478, 1, 0, 786479, 1, 0, 786480, 1, 0, 786481, 1, 0, 786482, 1, 0, 786483, 1, 0, 786484, 1, 0, 786485, 1, 0)

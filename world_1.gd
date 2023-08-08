@@ -13,7 +13,12 @@ func _ready():
 	
 	
 func _process(delta):
+	
+	trigger_ground_collision_test()
+
+
+
+
+func trigger_ground_collision_test():
 	if Input.is_action_just_pressed("p"):
-		$Ground_1.set_collision_layer_value(1, false)
-
-
+		$Ground_1.set_collision_layer_value(1, !$Ground_1.get_collision_layer_value(1))

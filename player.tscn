@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://o4js4b6qsfcn" path="res://player.png" id="1_ivlia"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ylvye"]
-size = Vector2(9, 20)
+size = Vector2(9.5, 23)
 
 [node name="Player" type="CharacterBody2D"]
 floor_constant_speed = true
@@ -17,4 +17,5 @@ scale = Vector2(0.625, 0.625)
 texture = ExtResource("1_ivlia")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
 shape = SubResource("RectangleShape2D_ylvye")
